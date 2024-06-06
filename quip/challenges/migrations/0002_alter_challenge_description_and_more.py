@@ -20,4 +20,5 @@ class Migration(migrations.Migration):
             name='function_name',
             field=models.CharField(max_length=40),
         ),
+
     ]

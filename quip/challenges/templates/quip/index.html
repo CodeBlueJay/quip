@@ -7,7 +7,7 @@
 
 {% block links %}
 <style>
-.code-background {
+/* .code-background {
     background-image: url("{% static 'img/code-background.jpg' %}");
     background-size: cover;
     background-repeat: no-repeat;
@@ -18,6 +18,40 @@
     top: 0;
     left: 0;
     z-index: -1;
+} */
+body {
+    overflow: hidden;
+}
+/* .code-background {
+    overflow-y: hidden;
+    height: 100vh;
+}
+.star {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 1;
+}
+@keyframes twinkle {
+    0% { opacity: 0; transform: translateY(-200px); }
+    10% { opacity: 1; transform: translateY(0px); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(200px); }
+} */
+#background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: black;
+}
+
+canvas {
+    display: block;
 }
 </style>
 {% endblock links %}
@@ -25,17 +59,25 @@
 {% block content %}
 
 <section class="code-background">
-    <div>
+    <div class="content-wrapper">
         <h1 class="title">Modern technology for modern learning</h1>
+        <div class="explanation">
+            <p class="explanation-text">
+                quip is an educational coding website centered on objectives called Challenges. 
+                Bite-sized, repeatable practice builds knowledge and accompanies lessons well.
+                Rather than running user-submitted code serverside, necessitating obstructive security practices and reliable internet, quip uses Pyodide
+                to run Python in-browser. This means that the full language, standard library, and even external packages are available.
+            </p>
+        </div>
+        <a class="challenge-portal" href="/challenges/"><span>Go to Challenges </span></a>
+    <!-- <div id="overlay"></div> -->
+    <div id="background-container">
+        <div id="particles-js"></div>
     </div>
-    <div class="explanation">
-        <p class="explanation-text">
-            quip is an educational coding website centered on objectives called Challenges. 
-            Bite-sized, repeatable practice builds knowledge and accompanies lessons well.
-            Rather than running user-submitted code serverside, necessitating obstructive security practices and reliable internet, quip uses Pyodide
-            to run Python in-browser. This means that the full language, standard library, and even external packages are available.
-        </p>
     </div>
-    <div id="overlay"></div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="/static/styles/particles.js"></script>
+
 {% endblock content %}

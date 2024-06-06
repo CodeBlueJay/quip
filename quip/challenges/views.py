@@ -10,18 +10,21 @@ def index(request):
     # there is probably an efficient way to simultaneously extract this data.
     data = (
         dict(
-            color='success', 
-            difficulty='Easy',   
+            color='#21cc0a', 
+            difficulty='Easy',
+            font='JetBrains Mono',  
             challenges=Challenge.objects.filter(difficulty="Easy"  )
         ),
         dict(
-            color='warning', 
-            difficulty='Medium', 
+            color='#ffff00', 
+            difficulty='Medium',
+            font='JetBrains Mono', 
             challenges=Challenge.objects.filter(difficulty="Medium")
         ),
         dict(
-            color='danger',  
-            difficulty='Hard',   
+            color='#ff0000',  
+            difficulty='Hard',
+            font='JetBrains Mono',   
             challenges=Challenge.objects.filter(difficulty="Hard"  )
         ),
     )

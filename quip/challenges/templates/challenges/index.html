@@ -3,30 +3,32 @@
 
 {% block title %}quip - All Challenges{% endblock title %}
 
-
 {% block content %}
-    <section class="container text-center p-4 m-5">
-        <h1>All Challenges</h1>
+<div style="overflow-x: hidden;">
+    <section class="header-container">
+        <h1 class="challenges-header">All Challenges</h1>
         <!-- "<hr />"" is gross. fight me. -iz -->
         <!-- agree -->
         <hr>
     </section>
-    <section class="row">
-        {% for group in data %}
-            {# todo: some js animation would be nice here. maybe they could rotate or  #}
-            <div class="col-sm text-center">
-                <h1 class="text-{{ group.color }}">{{ group.difficulty }}</h1>
-                {% for challenge in group.challenges %}
-                    <div class="card d-inline-flex p-4 m-3">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ challenge.function_name }}</h5>
-                            <p class="card-text" style="width: 15em;">{{ challenge.description }}</p>
-                            <a href="/challenges/{{ challenge.id }}" class="btn btn-primary">Go to challenge</a>
+    <section class="challenge-container">
+        <div class="challenge-list-container">
+            {% for group in data %}
+                {# todo: some js animation would be nice here. maybe they could rotate or  #}
+                <div class="challenge-list">
+                    <h1 style="color: {{group.color}}; font-family: '{{group.font}}';">{{ group.difficulty }}</h1>
+                    {% for challenge in group.challenges %}
+                        <div class="challenge-card-container">
+                            <div class="challenge-card">
+                                <h5 class="challenge-card-title">{{ challenge.function_name }}</h5>
+                                <p class="challenge-card-text" style="width: 15em;">{{ challenge.description }}</p>
+                                <a href="/challenges/{{ challenge.id }}" class="challenge-button">Go to challenge</a>
+                            </div>
                         </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endfor %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
     </section>
-
+</div>
 {% endblock content %}

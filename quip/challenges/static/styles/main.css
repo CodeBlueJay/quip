@@ -1,3 +1,7 @@
+body {
+    font-family: "JetBrains Mono";
+}
+/* Home Page Styles */
 #overlay {
     position: fixed;
     display: block;
@@ -8,11 +12,15 @@
     right: 0;
     bottom: 0;
     z-index: -2;
-    background-color: rgba(0,0,0,0.6)
+    background-color: rgba(0,0,0,0)
+}
+.navbar-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .topnav {
     background-color: #000;
-    color: white;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -38,17 +46,24 @@
 .navitem:hover {
     background-color: #707070;
 }
+
 .active {
     background-color: #0099ff;
 }
+
 .title {
     margin-top: 75px;
-    margin-left: 50px;
-    margin-right: 20px;
-    color: white;
     font-family: "JetBrains Mono";
-    z-index: 2;
-    /* text-shadow: 2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black; */ /*<-- This da border*/
+}
+.content-wrapper {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+}
+.title {
+    margin-top: 75px;
+    font-family: "JetBrains Mono";
 }
 .explanation {
     background-color: #242424;
@@ -56,10 +71,182 @@
     padding: 10px 16px;
     width: 650px;
     height: 200px;
-    margin-left: 50px;
-    margin-top: 50px;
+    margin: 50px auto; /* Center horizontally */
 }
+
 .explanation-text {
-    color: white;
     font-family: "JetBrains Mono";
 }
+
+.challenge-portal {
+    background-color: limegreen;
+    color: white;
+    padding: 14px 16px;
+    border-radius: 50px;
+    border: transparent;
+    font-size: 20px;
+    font-family: "JetBrains Mono";
+}
+.challenge-portal span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+  
+.challenge-portal span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.3s;
+}
+  
+.challenge-portal:hover span {
+    padding-right: 25px;
+}
+  
+.challenge-portal:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+/* End of Home Page Styles */
+
+/* Coding Window Styles */
+.code-editor {
+    width: 100%;
+    height: 17em;
+    border: 1px solid grey;
+    overflow: auto;
+}
+.editor-window {
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    color: white;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "JetBrains Mono";
+}
+.code-block-left {
+    border-radius: 20px;
+    background-color: #212529;
+    padding: 20px 20px;
+    width: 50%;
+    margin-left: 10px;
+}
+.code-block-right {
+    border-radius: 20px;
+    background-color: #212529;
+    padding: 20px 20px;
+    width: 50%;
+    margin-right: 10px;
+}
+.run-button {
+    background-color: #0D6EFD;
+    color: white;
+    border-radius: 12px;
+    border: transparent;
+    padding: 10px 12px;
+    transition-duration: 0.3s;
+}
+.run-button:hover {
+    background-color: #0099ff;
+}
+.random-button {
+    background-color: #6C757D;
+    color: white;
+    border-radius: 12px;
+    border: transparent;
+    padding: 10px 12px;
+    margin-left: auto;
+    transition-duration: 0.3s;
+}
+.random-button:hover {
+    background-color: #898989;
+}
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+/* End of Coding Window Styles */
+
+/* Challenges Page Styles */
+.header-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.challenges-header {
+    color: white;
+    font-family: 'JetBrains Mono';
+}
+
+.challenge-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.challenge-list-container {
+    display: flex;
+    justify-content: space-around; /* Change this line */
+    align-items: center;
+}
+
+.challenge-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Change this line */
+    justify-content: center; /* Add this line */
+    padding: 0;
+}
+.challenge-list h1 {
+    width: 100%;
+    align-self: flex-start;
+    margin: 0;
+    padding: 0;
+}
+.challenge-card-container {
+    width: 300px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 15px;
+}
+.challenge-card {
+    padding: 20px;
+}
+
+.challenge-card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.challenge-card-text {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.challenge-button {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.challenge-button:hover {
+    background-color: #0056b3;
+}
+/* End of Challenge Page Styles */
